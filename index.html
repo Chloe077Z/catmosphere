@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catmosphere</title>
+    <title>Catmosphere · 猫猫抽签机</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="little-two.jpg">
 </head>
@@ -12,23 +12,63 @@
 <body>
     <div class="container">
         <header>
-            <h1>Catmosphere</h1>
-            <p>每日一抽 · 遇见你的今日猫猫</p>
+            <h1>Catmosphere · 猫猫抽签机</h1>
+            <p>每日一抽 · 来自 Little Two 的今日祝福</p>
             <hr>
         </header>
 
         <main>
             <h2>今日猫猫</h2>
-            <img src="little-hua.jpg" alt="今日猫猫" class="cat-image">
-            <p>点击按钮抽取今日猫猫...</p>
-            <button>抽卡</button>
+            <img id="cat-image" src="little-hua.jpg" alt="今日猫猫" class="cat-image">
+
+            <h2>今日运势</h2>
+            <p id="fortune-text">点击下方开始抽签...</p>
+
+            <button id="draw-btn">抽签</button>
+
             <p><a href="#about">关于我</a></p>
         </main>
 
         <footer>
-            <p>Chloe个人工作室 | Made with ❤️</p>
+            <p>Chloe 个人工作室 | Made with ❤️</p>
         </footer>
     </div>
+
+    <script>
+        // 猫猫卡池（你可以继续增加图片）
+        const cats = [
+            { src: "little-two.jpg", name: "小二 · 温柔守护者 😺" },
+            { src: "little-hua.jpg", name: "小花 · 可爱短腿天使 🐾" },
+            { src: "little-hua.jpg", name: "暖心猫猫 · 今日贴贴专家 💗" }
+        ];
+
+        // 运势卡池（你可以继续扩充或按情绪分类）
+        const fortunes = [
+            "大吉 🍀：今天很适合开始一点新东西！",
+            "中吉 😊：保持耐心，会迎来好消息。",
+            "小吉 🌤️：多夸夸自己，会更顺利。",
+            "平安签 🌱：慢慢来，已经很好了。",
+            "鼓励签 💛：你已经比昨天更进步一点啦！",
+            "治愈签 🩶：喝点热水、摸摸猫，会变更幸福。",
+            "行动签 🔥：今天完成一个小任务吧！比如：5分钟整理。"
+        ];
+
+        const drawBtn = document.getElementById("draw-btn");
+        const catImage = document.getElementById("cat-image");
+        const fortuneText = document.getElementById("fortune-text");
+
+        drawBtn.addEventListener("click", function () {
+            // 随机猫猫
+            const randomCat = cats[Math.floor(Math.random() * cats.length)];
+            catImage.src = randomCat.src;
+
+            // 随机签文
+            const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+
+            fortuneText.innerHTML = `${randomFortune}`;
+        });
+    </script>
+
 </body>
 
 </html>
