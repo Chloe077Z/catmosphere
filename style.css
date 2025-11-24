@@ -71,3 +71,16 @@ footer {
     margin-top: 20px;
     font-size: 14px;
 }
+#fortune-text {
+    font-size: 18px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+#cat-image {
+    transition: transform 0.3s ease;
+}
+
+#cat-image:hover {
+    transform: scale(1.05);
+}
